@@ -1,0 +1,24 @@
+{
+  "name": "clock-filter",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5napy/clock-filter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/5napy/clock-filter/issues"
+  },
+  "homepage": "https://github.com/5napy/clock-filter#readme",
+  "description": "",
+  "dependencies": {
+    "electron": "^41.0.4",
+    "xlsx": "^0.18.5"
+  }
+}
