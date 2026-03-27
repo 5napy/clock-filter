@@ -29,3 +29,23 @@ ipcMain.handle("open-file", async () => {
   const content = fs.readFileSync(filePaths[0], "utf-8");
   return content;
 });
+
+//xlsx
+
+const XLSX = require("xlsx");
+
+ipcMain.handle("save-xlsx", async (event, data) => {
+  const { filePath } = await dialog.showSaveDialog({
+    defaultPath: "asistencia.xlsx",
+    filters: [{ name: "Excel", extensions: ["xlsx"] }],
+  });
+
+  if (!filePath) return null;
+
+  const worksheet = XLSX.utils.json_to_sheet(data);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Asistencia");
+  XLSX.writeFile(workbook, filePath);
+
+  return true;
+});

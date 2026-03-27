@@ -1,4 +1,6 @@
 const button = document.getElementById("open-btn");
+const downloadBtn = document.getElementById("download-btn");
+let finalResults = {};
 
 button.addEventListener("click", () => {
   window.electronAPI.openFile().then((content) => {
@@ -11,7 +13,8 @@ button.addEventListener("click", () => {
     const rows = parseCSV(content); // 1. Parse CSV string into an array of objects
     const counts = countPunches(rows); // 2. Pass those rows to count punches
     const shifts = getShifts(rows, counts); // 3. Pass rows & counts to get shifts
-    const finalResults = calculateShifts(shifts); // 4. Calculate final hours
+    finalResults = calculateShifts(shifts); // 4. Calculate final hours
+    downloadBtn.style.display = "block"; //show download button
 
     const tbody = document.getElementById("table-body");
     tbody.innerHTML = "";
@@ -43,4 +46,20 @@ button.addEventListener("click", () => {
 
     console.log("Filtered Results:", finalResults);
   });
+});
+
+downloadBtn.addEventListener("click", () => {
+  const data = [];
+
+  Object.entries(finalResults).forEach(([key, shift]) => {
+    const [name, date] = key.split("|");
+    data.push({
+      Nombre: name,
+      Fecha: date,
+      Entrada: shift.entry,
+      Salida: shift.exit,
+      "Horas trabajadas": shift.hoursWorked,
+    });
+  });
+  window.electronAPI.saveXlsx(data);
 });

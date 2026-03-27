@@ -78,9 +78,7 @@ tr.suspicious:hover td {
     background-color: #fff3d6;
 }
 
-#download-xlsx {
+#download-btn {
     margin-top: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
 }
