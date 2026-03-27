@@ -4,12 +4,27 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Punch clock filter</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <button id="open-btn">Seleccionar archivo</button>
         <p id="selected-file"></p>
 
+        <table id="results-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Entrada</th>
+                    <th>Salida</th>
+                    <th>Horas trabajadas</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+
         <button id="download-xlsx">Descargar Excel</button>
+        <script src="filter.js"></script>
         <script src="renderer.js"></script>
     </body>
 </html>
