@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.yourname.clockfilter",
+    "productName": "Clock Filter",
+    "mac": {
+      "target": "dmg",
+      "icon": "icon/AppIcon.icns"
+    }
   },
   "repository": {
     "type": "git",
@@ -16,9 +25,12 @@
     "url": "https://github.com/5napy/clock-filter/issues"
   },
   "homepage": "https://github.com/5napy/clock-filter#readme",
-  "description": "",
+  "description": "Attendance clock filter app",
   "dependencies": {
-    "electron": "^41.0.4",
     "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "electron": "^41.0.4",
+    "electron-builder": "^26.8.1"
   }
 }
