@@ -9,6 +9,7 @@
   "build": {
     "appId": "com.yourname.clockfilter",
     "productName": "Clock Filter",
+    "publish": null,
     "mac": {
       "target": "dmg",
       "icon": "icon/AppIcon.icns"
